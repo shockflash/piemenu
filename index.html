@@ -1,0 +1,53 @@
+<html> 
+<head> 
+  <link rel="stylesheet" href="rap.css" media="screen"> 
+
+  <script src="raphael-min.js"></script>
+  <script src="pieslice.js"></script> 
+
+  <script type="text/javascript">  
+    window.onload = function () {
+    	var r = Raphael("holder");
+    	r.canvas.setAttribute('viewBox', '-500 -500 1000 1000'); 
+
+    	var cake = new PieSlice(r);
+    	    	
+      var pie2a = new PieSlice(r);       
+      cake.add(pie2a);
+
+      var pie2b = new PieSlice(r);       
+      cake.add(pie2b);
+
+      var pie2c = new PieSlice(r);       
+      cake.add(pie2c);
+
+      for (var d = 1; d <= 6; d++)
+      {
+        var pie3 = new PieSlice(r);  
+        pie3.setColor("red");      
+        pie2a.add(pie3);
+      }
+      
+      for (var d = 1; d <= 1; d++)
+      {
+        var pie3 = new PieSlice(r);  
+        pie3.setColor("red");      
+        pie2b.add(pie3);
+      }
+      
+      for (var d = 1; d <= 3; d++)
+      {
+        var pie3 = new PieSlice(r);  
+        pie3.setColor("red");      
+        pie2c.add(pie3);
+      }
+      
+      cake.activate();     
+    };
+  </script>
+   
+</head> 
+
+<body><div id="holder"></div></body> 
+
+</html>
