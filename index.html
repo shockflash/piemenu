@@ -8,46 +8,29 @@
   <script type="text/javascript">  
     window.onload = function () {
     	var r = Raphael("holder");
-    	r.canvas.setAttribute('viewBox', '-500 -500 1000 1000'); 
+    	r.canvas.setAttribute('viewBox', '-400 -400 800 800'); 
+    	
+    	var cake = new PieSlice(r);    	    	
 
-    	var cake = new PieSlice(r);
-    	    	
-      var pie2a = new PieSlice(r);       
-      cake.add(pie2a);
-
-      var pie2b = new PieSlice(r);       
-      cake.add(pie2b);
-
-      var pie2c = new PieSlice(r);       
-      cake.add(pie2c);
-
-      for (var d = 1; d <= 6; d++)
+      for (var d = 1; d <= 5; d++)
       {
-        var pie3 = new PieSlice(r);  
-        pie3.setColor("red");      
-        pie2a.add(pie3);
+        var pie = new PieSlice(r);  
+        cake.add(pie);
+        for (var d2 = 1; d2 <= 5; d2++)
+        {
+        	var pieSub = new PieSlice(r);  
+          pie.add(pieSub);            
+        }            
       }
       
-      for (var d = 1; d <= 1; d++)
-      {
-        var pie3 = new PieSlice(r);  
-        pie3.setColor("red");      
-        pie2b.add(pie3);
-      }
-      
-      for (var d = 1; d <= 3; d++)
-      {
-        var pie3 = new PieSlice(r);  
-        pie3.setColor("red");      
-        pie2c.add(pie3);
-      }
-      
-      cake.activate();     
+      cake.activate();
     };
   </script>
    
 </head> 
 
-<body><div id="holder"></div></body> 
+<body>
+  <div id="holder"></div>
+</body> 
 
 </html>
